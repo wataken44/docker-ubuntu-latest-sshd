@@ -3,10 +3,11 @@ version: 2.0
 jobs:
   build:
     docker:
-      - image: docker:stable-git
+      - image: ubuntu-2204:2022.04.2
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+        version: 20.10.14
       - run:
           command: docker build -t wataken44/ubuntu-latest-sshd .
       - run:
